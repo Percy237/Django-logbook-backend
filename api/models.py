@@ -71,3 +71,18 @@ class User(AbstractBaseUser, PermissionsMixin):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
+class Course(models.Model):
+    name = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name
+
+
+class Class(models.Model):
+    name = models.CharField(max_length=30)
+    students = models.ManyToManyField(User, related_name='classes')
+    courses =models.ManyToManyField(Course, related_name='class_courses')
+
+    def __str__(self):
+        return self.name
+    
