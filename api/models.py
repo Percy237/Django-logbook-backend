@@ -4,7 +4,9 @@ from datetime import date
 
 
 class CustomUserManager(UserManager):
-    def create_user(self, email, date_of_birth, name, gender, password=None):
+    def create_user(
+        self, email, date_of_birth, name, gender, class_enrolled=None, password=None
+    ):
         if not email:
             raise ValueError("Users must have an email address")
 
@@ -13,20 +15,19 @@ class CustomUserManager(UserManager):
             date_of_birth=date_of_birth,
             name=name,
             gender=gender,
+            class_enrolled=class_enrolled,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, name, gender, date_of_birth, password=None):
+    def create_superuser(self, email, name, password=None):
 
         user = self.create_user(
             email,
             password=password,
-            date_of_birth=date_of_birth,
             name=name,
-            gender=gender,
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -45,12 +46,19 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_delegate = models.BooleanField(default=False)
+    class_enrolled = models.ForeignKey(
+        "Class",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="students",
+    )
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = "email"
     EMAIL_FIELD = "email"
-    REQUIRED_FIELDS = ["date_of_birth", "name", "gender"]
+    REQUIRED_FIELDS = ["date_of_birth", "name", "gender", "class_enrolled"]
 
     def __str__(self):
         return self.email
@@ -72,17 +80,17 @@ class User(AbstractBaseUser, PermissionsMixin):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+
 class Course(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=50)
+
     def __str__(self):
         return self.name
 
 
 class Class(models.Model):
     name = models.CharField(max_length=30)
-    students = models.ManyToManyField(User, related_name='classes')
-    courses =models.ManyToManyField(Course, related_name='class_courses')
+    courses = models.ManyToManyField(Course, related_name="class_courses")
 
     def __str__(self):
         return self.name
-    
