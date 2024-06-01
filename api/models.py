@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 from django.db import models
-from datetime import date
+from datetime import date, datetime
+from django.conf import settings
 
 
 class CustomUserManager(UserManager):
@@ -98,30 +99,6 @@ class Class(models.Model):
         return self.name
 
 
-class LogbookEntry(models.Model):
-    course = models.ForeignKey(
-        Course, on_delete=models.CASCADE, related_name="logbook_entries"
-    )
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    text = models.TextField()
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-
-    def __str__(self):
-        return f"Logbook Entry for {self.course.name}"
-
-
-class File(models.Model):
-    logbook_entry = models.ForeignKey(
-        LogbookEntry, on_delete=models.CASCADE, related_name="files"
-    )
-    file = models.FileField(upload_to="logbook_files/")
-
-    def __str__(self):
-        return f"File for Logbook Entry {self.logbook_entry.course}"
-
-
 class Teacher(models.Model):
     name = models.CharField(max_length=100)
 
@@ -138,25 +115,26 @@ class TeacherCourseHours(models.Model):
         return f"{self.teacher.name} - {self.course.name}"
 
 
-# class LogbookEntry(models.Model):
-#     start_time = models.TimeField()
-#     end_time = models.TimeField()
-#     text = models.TextField()
-#     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-#     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(auto_now_add=True)
+class LogbookEntry(models.Model):
+    start_time = models.TimeField()
+    end_time = models.TimeField()
+    text = models.TextField()
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=2
+    )
 
-#     def save(self, *args, **kwargs):
-#         # Calculate hours taught
-#         start = datetime.combine(datetime.today(), self.start_time)
-#         end = datetime.combine(datetime.today(), self.end_time)
-#         hours_taught = (end - start).total_seconds() / 3600
+    def __str__(self):
+        return f"Logbook Entry for {self.course.name} by {self.teacher.name}"
 
-#         # Update or create TeacherCourseHours
-#         teacher_course_hours, created = TeacherCourseHours.objects.get_or_create(
-#             teacher=self.teacher, course=self.course
-#         )
-#         teacher_course_hours.hours_taught += hours_taught
-#         teacher_course_hours.save()
 
-#         super().save(*args, **kwargs)
+class File(models.Model):
+    logbook_entry = models.ForeignKey(
+        LogbookEntry, on_delete=models.CASCADE, related_name="files"
+    )
+    file = models.FileField(upload_to="logbook_files/")
+
+    def __str__(self):
+        return f"File for Logbook Entry {self.logbook_entry.course}"

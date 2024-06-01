@@ -56,6 +56,7 @@ class LogbookEntrySerializer(serializers.ModelSerializer):
             "id",
             "start_time",
             "end_time",
+            "teacher",
             "text",
             "course_name",
             "created_at",
@@ -76,4 +77,9 @@ class LogbookEntrySerializer(serializers.ModelSerializer):
             instance.files.all(), many=True
         ).data
         return representation
-    
+
+
+class TeacherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ["id", "name"]

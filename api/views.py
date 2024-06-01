@@ -1,5 +1,7 @@
+from datetime import datetime
+from decimal import Decimal
 from django.shortcuts import render
-from .models import User, Course, Class, LogbookEntry
+from .models import User, Course, Class, LogbookEntry, TeacherCourseHours, Teacher
 from rest_framework import generics
 from rest_framework.response import Response
 from .serializers import (
@@ -7,6 +9,7 @@ from .serializers import (
     CourseSerializer,
     ClassSerializer,
     LogbookEntrySerializer,
+    TeacherSerializer,
 )
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
@@ -22,7 +25,6 @@ class ListAUserView(generics.ListAPIView):
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        # Filter the users to return only the currently authenticated user
         return User.objects.filter(id=self.request.user.id)
 
 
@@ -65,7 +67,7 @@ class CourseListForAClassView(generics.ListAPIView):
 
     def get_queryset(self):
         class_enrolled = self.request.user.class_enrolled.id
-        return Course.objects.filter()
+        return Course.objects.filter(class_courses=class_enrolled)
 
 
 class ClassCourseListCreateView(generics.ListCreateAPIView):
@@ -89,4 +91,31 @@ class LogbookEntryListCreateView(generics.ListCreateAPIView):
         except Course.DoesNotExist:
             raise serializer.ValidationError({"course": "Course not found"})
 
+        teacher_id = serializer.validated_data["teacher"].id
+        start_time = serializer.validated_data["start_time"]
+        end_time = serializer.validated_data["end_time"]
+
+        start = datetime.combine(datetime.today(), start_time)
+        end = datetime.combine(datetime.today(), end_time)
+
+        hours_taught = Decimal((end - start).total_seconds() / 3600)
+
+        teacher_course_hours, created = TeacherCourseHours.objects.get_or_create(
+            teacher_id=teacher_id, course_id=course_id
+        )
+
+        teacher_course_hours.hours_taught += hours_taught
+        teacher_course_hours.save()
+
         serializer.save(course_id=course_id, created_by=self.request.user)
+
+
+class TeacherListCreateView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TeacherSerializer
+
+    def get_queryset(self):
+        return Teacher.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save()

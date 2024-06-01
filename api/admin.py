@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from .models import User, Course, Class, LogbookEntry, File
+from .models import User, Course, Class, LogbookEntry, File, Teacher, TeacherCourseHours
 
 
 class UserCreationForm(forms.ModelForm):
@@ -99,3 +99,5 @@ admin.site.register(Course)
 admin.site.register(Class)
 admin.site.register(LogbookEntry)
 admin.site.register(File)
+admin.site.register(Teacher)
+admin.site.register(TeacherCourseHours)

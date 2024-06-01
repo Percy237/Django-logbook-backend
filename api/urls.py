@@ -16,4 +16,9 @@ urlpatterns = [
         views.LogbookEntryListCreateView.as_view(),
         name="logbook-entry-create",
     ),
+    path(
+        "teacher/",
+        views.TeacherListCreateView.as_view(),
+        name="teacher-list-create",
+    ),
 ]
