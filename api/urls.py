@@ -7,8 +7,13 @@ urlpatterns = [
     path("class/", views.ClassListCreateView.as_view(), name="list-create-class"),
     path("userprofile/", views.ListAUserView.as_view(), name="user-account"),
     path(
-        "classes/<int:class_id>/courses/",
+        "class/courses/",
         views.CourseListForAClassView.as_view(),
         name="class-courses-list",
+    ),
+    path(
+        "courses/<int:course_id>/logbook-entries/",
+        views.LogbookEntryListCreateView.as_view(),
+        name="logbook-entry-create",
     ),
 ]

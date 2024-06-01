@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from .models import User, Course, Class
+from .models import User, Course, Class, LogbookEntry, File
 
 
 class UserCreationForm(forms.ModelForm):
@@ -53,7 +53,6 @@ class UserChangeForm(forms.ModelForm):
             "is_active",
             "is_admin",
             "is_delegate",
-            "class_enrolled",
         ]
 
 
@@ -83,7 +82,6 @@ class UserAdmin(BaseUserAdmin):
                     "date_of_birth",
                     "name",
                     "gender",
-                    "class_enrolled",
                     "password1",
                     "password2",
                 ],
@@ -99,3 +97,5 @@ admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
 admin.site.register(Course)
 admin.site.register(Class)
+admin.site.register(LogbookEntry)
+admin.site.register(File)
