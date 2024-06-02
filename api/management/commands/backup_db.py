@@ -1,8 +1,9 @@
 from django.core.management.base import BaseCommand
 import os
 
+
 class Command(BaseCommand):
-    help = 'Backup PostgreSQL database'
+    help = "Backup PostgreSQL database"
 
     def handle(self, *args, **kwargs):
         # PostgreSQLBackup instance initialization
@@ -15,8 +16,9 @@ class Command(BaseCommand):
         # Execute backup
         backup.backup()
 
+
 class PostgreSQLBackup:
-    def _init_(self, database, username, password, output_file):
+    def __init__(self, database, username, password, output_file):
         self.database = database
         self.username = username
         self.password = password
@@ -24,7 +26,7 @@ class PostgreSQLBackup:
 
     def backup(self):
         # Set the PGPASSWORD environment variable
-        os.environ['PGPASSWORD'] = self.password
+        os.environ["PGPASSWORD"] = self.password
 
         # Construct the command string
         command = (

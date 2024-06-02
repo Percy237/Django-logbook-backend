@@ -21,6 +21,12 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
 
 
+class ListUserView(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+
 class ListAUserView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
