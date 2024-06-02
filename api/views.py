@@ -119,3 +119,14 @@ class TeacherListCreateView(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save()
+
+class TeacherUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TeacherSerializer
+    queryset = Teacher.objects.all()
+
+
+class TeacherDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TeacherSerializer
+    queryset = Teacher.objects.all()
