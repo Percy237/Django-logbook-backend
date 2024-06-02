@@ -1,384 +1,1247 @@
 {
-  "info": {
-    "_postman_id": "4e429ea6-c637-47af-8756-f8d29f497dcc",
-    "name": "logbook",
-    "description": "mnbhgjhg",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "30152329"
-  },
-  "item": [
-    {
-      "name": "User",
-      "item": [
-        {
-          "name": "Create a User",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "localhost:8000/api/user/register/",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["api", "user", "register", ""]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Class",
-      "item": [
-        {
-          "name": "Create class",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MDY2MjY4LCJpYXQiOjE3MTcwNjQ0NjgsImp0aSI6ImQwZDFkOWRiZTkyNDRlMmVhOTBlNzIyY2Q1ZTBmMzA0IiwidXNlcl9pZCI6MX0.-PDrxZpZQBw7VSjkYLmFB2OMIAxKQ4oGbQf_xOQwA-w",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"name\": \"B2B\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:8000/api/class/",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["api", "class", ""]
-            },
-            "description": "A request to create a new class"
-          },
-          "response": []
-        },
-        {
-          "name": "New request",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MDY2MjY4LCJpYXQiOjE3MTcwNjQ0NjgsImp0aSI6ImQwZDFkOWRiZTkyNDRlMmVhOTBlNzIyY2Q1ZTBmMzA0IiwidXNlcl9pZCI6MX0.-PDrxZpZQBw7VSjkYLmFB2OMIAxKQ4oGbQf_xOQwA-w",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:8000/api/class/",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["api", "class", ""]
-            },
-            "description": "To list all the classes"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Logbook entries",
-      "item": [
-        {
-          "name": "Get entries",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MjU0MzQ1LCJpYXQiOjE3MTcyNTI1NDUsImp0aSI6IjA4Y2Y3YTc3YTQ5YTQ4MWQ4ZjA1MmI3OTE2NzA1ODkwIiwidXNlcl9pZCI6Mn0.5ZxydQoKvskWDk8asL8gymort7UR0SPKfOD9iryPqlg",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "localhost:8000/api/courses/1/logbook-entries/",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["api", "courses", "1", "logbook-entries", ""]
-            },
-            "description": "This api is used to list all entries of a particular course"
-          },
-          "response": [
-            {
-              "name": "Get entries",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "url": {
-                  "raw": "localhost:8000/api/courses/1/logbook-entries/",
-                  "host": ["localhost"],
-                  "port": "8000",
-                  "path": ["api", "courses", "1", "logbook-entries", ""]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Date",
-                  "value": "Sat, 01 Jun 2024 14:47:47 GMT"
-                },
-                {
-                  "key": "Server",
-                  "value": "WSGIServer/0.2 CPython/3.12.3"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept, origin"
-                },
-                {
-                  "key": "Allow",
-                  "value": "GET, POST, HEAD, OPTIONS"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "782"
-                },
-                {
-                  "key": "X-Content-Type-Options",
-                  "value": "nosniff"
-                },
-                {
-                  "key": "Referrer-Policy",
-                  "value": "same-origin"
-                },
-                {
-                  "key": "Cross-Origin-Opener-Policy",
-                  "value": "same-origin"
-                }
-              ],
-              "cookie": [],
-              "body": "[\n    {\n        \"id\": 3,\n        \"start_time\": \"07:30:00\",\n        \"end_time\": \"09:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Getting started with models\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T13:35:30.564784Z\",\n        \"files\": [],\n        \"uploaded_files\": []\n    },\n    {\n        \"id\": 5,\n        \"start_time\": \"07:30:00\",\n        \"end_time\": \"09:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Revision\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T14:34:00.443903Z\",\n        \"files\": [],\n        \"uploaded_files\": []\n    },\n    {\n        \"id\": 6,\n        \"start_time\": \"09:30:00\",\n        \"end_time\": \"11:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Practical Work: Weed Project\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T14:42:03.615895Z\",\n        \"files\": [\n            {\n                \"id\": 3,\n                \"logbook_entry\": 6,\n                \"file\": \"http://localhost:8000/media/logbook_files/Django_Crash_Course.pdf\"\n            }\n        ],\n        \"uploaded_files\": [\n            {\n                \"id\": 3,\n                \"logbook_entry\": 6,\n                \"file\": \"/media/logbook_files/Django_Crash_Course.pdf\"\n            }\n        ]\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "Create logbook entry",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MjU0MzQ1LCJpYXQiOjE3MTcyNTI1NDUsImp0aSI6IjA4Y2Y3YTc3YTQ5YTQ4MWQ4ZjA1MmI3OTE2NzA1ODkwIiwidXNlcl9pZCI6Mn0.5ZxydQoKvskWDk8asL8gymort7UR0SPKfOD9iryPqlg",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "course",
-                  "value": "2",
-                  "type": "text",
-                  "disabled": true
-                },
-                {
-                  "key": "text",
-                  "value": "Practical Work: Weed Project",
-                  "type": "text"
-                },
-                {
-                  "key": "created_by",
-                  "value": "2",
-                  "type": "text",
-                  "disabled": true
-                },
-                {
-                  "key": "start_time",
-                  "value": "9:30",
-                  "type": "text"
-                },
-                {
-                  "key": "end_time",
-                  "value": "11:30",
-                  "type": "text"
-                },
-                {
-                  "key": "uploaded_files",
-                  "type": "file",
-                  "src": "/C:/Users/Tsembom Percy/Documents/Dev/Python/Advanced OOP/New folder/Django Crash Course.pdf"
-                },
-                {
-                  "key": "teacher",
-                  "value": "1",
-                  "type": "text"
-                }
-              ],
-              "options": {
-                "formdata": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "localhost:8000/api/courses/1/logbook-entries/",
-              "host": ["localhost"],
-              "port": "8000",
-              "path": ["api", "courses", "1", "logbook-entries", ""]
-            },
-            "description": "This api is used to create a logbook entry for a particular course"
-          },
-          "response": [
-            {
-              "name": "Create logbook entry",
-              "originalRequest": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "course",
-                      "value": "2",
-                      "type": "text",
-                      "disabled": true
-                    },
-                    {
-                      "key": "text",
-                      "value": "Practical Work: Weed Project",
-                      "type": "text"
-                    },
-                    {
-                      "key": "created_by",
-                      "value": "2",
-                      "type": "text",
-                      "disabled": true
-                    },
-                    {
-                      "key": "start_time",
-                      "value": "9:30",
-                      "type": "text"
-                    },
-                    {
-                      "key": "end_time",
-                      "value": "11:30",
-                      "type": "text"
-                    },
-                    {
-                      "key": "uploaded_files",
-                      "type": "file",
-                      "src": "/C:/Users/Tsembom Percy/Documents/Dev/Python/Advanced OOP/New folder/Django Crash Course.pdf"
-                    },
-                    {
-                      "key": "teacher",
-                      "value": "1",
-                      "type": "text"
-                    }
-                  ],
-                  "options": {
-                    "formdata": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "localhost:8000/api/courses/1/logbook-entries/",
-                  "host": ["localhost"],
-                  "port": "8000",
-                  "path": ["api", "courses", "1", "logbook-entries", ""]
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Date",
-                  "value": "Sat, 01 Jun 2024 14:42:03 GMT"
-                },
-                {
-                  "key": "Server",
-                  "value": "WSGIServer/0.2 CPython/3.12.3"
-                },
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                },
-                {
-                  "key": "Vary",
-                  "value": "Accept, origin"
-                },
-                {
-                  "key": "Allow",
-                  "value": "GET, POST, HEAD, OPTIONS"
-                },
-                {
-                  "key": "X-Frame-Options",
-                  "value": "DENY"
-                },
-                {
-                  "key": "Content-Length",
-                  "value": "387"
-                },
-                {
-                  "key": "X-Content-Type-Options",
-                  "value": "nosniff"
-                },
-                {
-                  "key": "Referrer-Policy",
-                  "value": "same-origin"
-                },
-                {
-                  "key": "Cross-Origin-Opener-Policy",
-                  "value": "same-origin"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"id\": 6,\n    \"start_time\": \"09:30:00\",\n    \"end_time\": \"11:30:00\",\n    \"teacher\": 1,\n    \"text\": \"Practical Work: Weed Project\",\n    \"course_name\": \"Advance OOP\",\n    \"created_at\": \"2024-06-01T14:42:03.615895Z\",\n    \"files\": [\n        {\n            \"id\": 3,\n            \"logbook_entry\": 6,\n            \"file\": \"http://localhost:8000/media/logbook_files/Django_Crash_Course.pdf\"\n        }\n    ],\n    \"uploaded_files\": [\n        {\n            \"id\": 3,\n            \"logbook_entry\": 6,\n            \"file\": \"/media/logbook_files/Django_Crash_Course.pdf\"\n        }\n    ]\n}"
-            }
-          ]
-        }
-      ],
-      "description": "Tests of everything related logbook entries"
-    },
-    {
-      "name": "Courses",
-      "item": [
-        {
-          "name": "Get courses",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": ""
-            }
-          },
-          "response": []
-        }
-      ]
-    }
-  ]
+	"info": {
+		"_postman_id": "4e429ea6-c637-47af-8756-f8d29f497dcc",
+		"name": "logbook",
+		"description": "mnbhgjhg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30152329"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Moana\",\r\n    \"email\": \"moano@gmail.com\",\r\n    \"date_of_birth\": \"2000-01-01\",\r\n    \"gender\": \"female\",\r\n    \"class_enrolled\": 1,\r\n    \"password\": \"moana123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/user/register/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"register",
+								""
+							]
+						},
+						"description": "Api to create a user"
+					},
+					"response": [
+						{
+							"name": "Create a User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Moana\",\r\n    \"email\": \"moano@gmail.com\",\r\n    \"date_of_birth\": \"2000-01-01\",\r\n    \"gender\": \"female\",\r\n    \"class_enrolled\": 1,\r\n    \"password\": \"moana123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/user/register/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 22:21:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "135"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"email\": \"moano@gmail.com\",\n    \"name\": \"Moana\",\n    \"date_of_birth\": \"2000-01-01\",\n    \"gender\": \"female\",\n    \"is_delegate\": false,\n    \"class_enrolled\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"prince@gmail.com\",\r\n    \"password\": \"yourhighness\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/token/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						},
+						"description": "api to login a user"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"prince@gmail.com\",\r\n    \"password\": \"yourhighness\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/token/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 22:15:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNzQ1MjkxMywiaWF0IjoxNzE3MzY2NTEzLCJqdGkiOiI4ZTM1N2RiMjRiOTA0NWY0OTcxMjY1NjBkM2UzMzZkMiIsInVzZXJfaWQiOjR9.Qae2hG4rQnhmx25xTIaYMcwH6tHInfszzJrarHEsz3A\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzY4MzEzLCJpYXQiOjE3MTczNjY1MTMsImp0aSI6ImM5MDNjZTVmNTNjNjRhNmJhZjhjYzAwYzU0NjUxMmZhIiwidXNlcl9pZCI6NH0.UjdywK-_YGCCVHTOGiQ2HUhZPnGJwxtBYd2mYX2EVQA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "list users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzY4MzEzLCJpYXQiOjE3MTczNjY1MTMsImp0aSI6ImM5MDNjZTVmNTNjNjRhNmJhZjhjYzAwYzU0NjUxMmZhIiwidXNlcl9pZCI6NH0.UjdywK-_YGCCVHTOGiQ2HUhZPnGJwxtBYd2mYX2EVQA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/user/all/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"all",
+								""
+							]
+						},
+						"description": "This api is used to list the different ours"
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/user/all/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"all",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 22:29:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "851"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"email\": \"percylarson17@gmail.com\",\n        \"name\": \"Tsembom Percy\",\n        \"date_of_birth\": \"2002-06-06\",\n        \"gender\": \"male\",\n        \"is_delegate\": true,\n        \"class_enrolled\": 1\n    },\n    {\n        \"id\": 1,\n        \"email\": \"admin@gmail.com\",\n        \"name\": \"Admin\",\n        \"date_of_birth\": \"2000-06-02\",\n        \"gender\": \"male\",\n        \"is_delegate\": false,\n        \"class_enrolled\": null\n    },\n    {\n        \"id\": 3,\n        \"email\": \"rima@gmail.com\",\n        \"name\": \"Rogan Cook\",\n        \"date_of_birth\": \"2003-06-25\",\n        \"gender\": \"female\",\n        \"is_delegate\": false,\n        \"class_enrolled\": 2\n    },\n    {\n        \"id\": 4,\n        \"email\": \"prince@gmail.com\",\n        \"name\": \"Nguh Prince\",\n        \"date_of_birth\": \"2020-01-01\",\n        \"gender\": \"male\",\n        \"is_delegate\": true,\n        \"class_enrolled\": 1\n    },\n    {\n        \"id\": 5,\n        \"email\": \"siffle@gmail.com\",\n        \"name\": \"Sigourney Snyder\",\n        \"date_of_birth\": \"1981-08-14\",\n        \"gender\": \"female\",\n        \"is_delegate\": false,\n        \"class_enrolled\": 1\n    },\n    {\n        \"id\": 6,\n        \"email\": \"moano@gmail.com\",\n        \"name\": \"Moana\",\n        \"date_of_birth\": \"2000-01-01\",\n        \"gender\": \"female\",\n        \"is_delegate\": false,\n        \"class_enrolled\": 1\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "Create class",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzY4OTY5LCJpYXQiOjE3MTczNjcxNjksImp0aSI6IjdjNzg5YmJjYTk5ZTQzNTU4YTMxMmU0MWJkNTMyY2Y3IiwidXNlcl9pZCI6Mn0.jfC4tgeCZG-_XT81thUZHN-7whbpWH6BN7Bz7ZknfgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"L1H\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/class/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"class",
+								""
+							]
+						},
+						"description": "A request to create a new class"
+					},
+					"response": [
+						{
+							"name": "Create class",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"L1H\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/class/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"class",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 22:26:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "34"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"name\": \"L1H\",\n    \"courses\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "list classes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzY4OTY5LCJpYXQiOjE3MTczNjcxNjksImp0aSI6IjdjNzg5YmJjYTk5ZTQzNTU4YTMxMmU0MWJkNTMyY2Y3IiwidXNlcl9pZCI6Mn0.jfC4tgeCZG-_XT81thUZHN-7whbpWH6BN7Bz7ZknfgU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/class/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"class",
+								""
+							]
+						},
+						"description": "To list all the classes"
+					},
+					"response": [
+						{
+							"name": "list classes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/class/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"class",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 22:26:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "460"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"B2A\",\n        \"courses\": [\n            {\n                \"id\": 7,\n                \"name\": \"UML\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Android programing\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"L1A\",\n        \"courses\": [\n            {\n                \"id\": 7,\n                \"name\": \"UML\"\n            }\n        ]\n    },\n    {\n        \"id\": 1,\n        \"name\": \"SE3\",\n        \"courses\": [\n            {\n                \"id\": 1,\n                \"name\": \"Advance OOP\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"GIS\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"ISDM\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Introduction To AI\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Data Analysis\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Database Security\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"J2EE\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Mobile programing\"\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"L1H\",\n        \"courses\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "delete a class",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Logbook entries",
+			"item": [
+				{
+					"name": "Get entries",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MjU0MzQ1LCJpYXQiOjE3MTcyNTI1NDUsImp0aSI6IjA4Y2Y3YTc3YTQ5YTQ4MWQ4ZjA1MmI3OTE2NzA1ODkwIiwidXNlcl9pZCI6Mn0.5ZxydQoKvskWDk8asL8gymort7UR0SPKfOD9iryPqlg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/courses/1/logbook-entries/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"courses",
+								"1",
+								"logbook-entries",
+								""
+							]
+						},
+						"description": "This api is used to list all entries of a particular course"
+					},
+					"response": [
+						{
+							"name": "Get entries",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/courses/1/logbook-entries/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"courses",
+										"1",
+										"logbook-entries",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 01 Jun 2024 14:47:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "782"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"start_time\": \"07:30:00\",\n        \"end_time\": \"09:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Getting started with models\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T13:35:30.564784Z\",\n        \"files\": [],\n        \"uploaded_files\": []\n    },\n    {\n        \"id\": 5,\n        \"start_time\": \"07:30:00\",\n        \"end_time\": \"09:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Revision\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T14:34:00.443903Z\",\n        \"files\": [],\n        \"uploaded_files\": []\n    },\n    {\n        \"id\": 6,\n        \"start_time\": \"09:30:00\",\n        \"end_time\": \"11:30:00\",\n        \"teacher\": 1,\n        \"text\": \"Practical Work: Weed Project\",\n        \"course_name\": \"Advance OOP\",\n        \"created_at\": \"2024-06-01T14:42:03.615895Z\",\n        \"files\": [\n            {\n                \"id\": 3,\n                \"logbook_entry\": 6,\n                \"file\": \"http://localhost:8000/media/logbook_files/Django_Crash_Course.pdf\"\n            }\n        ],\n        \"uploaded_files\": [\n            {\n                \"id\": 3,\n                \"logbook_entry\": 6,\n                \"file\": \"/media/logbook_files/Django_Crash_Course.pdf\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create logbook entry",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzMyNDQ4LCJpYXQiOjE3MTczMzA2NDgsImp0aSI6ImI4YzYwODE5ZDBjMTQ1MjU5MGUzZjBiNTkyYjM3ODZlIiwidXNlcl9pZCI6Mn0.cx5BHPOSv1T5qniD8RHblCJg8usUgDO4v7SMx0gH6Xc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "text",
+									"value": "Practical Work: Weed Project 3",
+									"type": "text"
+								},
+								{
+									"key": "created_by",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "start_time",
+									"value": "9:30",
+									"type": "text"
+								},
+								{
+									"key": "end_time",
+									"value": "11:30",
+									"type": "text"
+								},
+								{
+									"key": "uploaded_files",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "teacher",
+									"value": "1",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/courses/1/logbook-entries/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"courses",
+								"1",
+								"logbook-entries",
+								""
+							]
+						},
+						"description": "This api is used to create a logbook entry for a particular course"
+					},
+					"response": [
+						{
+							"name": "Create logbook entry",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "course",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "text",
+											"value": "Practical Work: Weed Project",
+											"type": "text"
+										},
+										{
+											"key": "created_by",
+											"value": "2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "start_time",
+											"value": "9:30",
+											"type": "text"
+										},
+										{
+											"key": "end_time",
+											"value": "11:30",
+											"type": "text"
+										},
+										{
+											"key": "uploaded_files",
+											"type": "file",
+											"src": "/C:/Users/Tsembom Percy/Documents/Dev/Python/Advanced OOP/New folder/Django Crash Course.pdf"
+										},
+										{
+											"key": "teacher",
+											"value": "1",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/courses/1/logbook-entries/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"courses",
+										"1",
+										"logbook-entries",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 01 Jun 2024 14:42:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "387"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"start_time\": \"09:30:00\",\n    \"end_time\": \"11:30:00\",\n    \"teacher\": 1,\n    \"text\": \"Practical Work: Weed Project\",\n    \"course_name\": \"Advance OOP\",\n    \"created_at\": \"2024-06-01T14:42:03.615895Z\",\n    \"files\": [\n        {\n            \"id\": 3,\n            \"logbook_entry\": 6,\n            \"file\": \"http://localhost:8000/media/logbook_files/Django_Crash_Course.pdf\"\n        }\n    ],\n    \"uploaded_files\": [\n        {\n            \"id\": 3,\n            \"logbook_entry\": 6,\n            \"file\": \"/media/logbook_files/Django_Crash_Course.pdf\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "Tests of everything related logbook entries"
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "get teachers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MjU1NTEzLCJpYXQiOjE3MTcyNTM3MTMsImp0aSI6IjlkYWY1MjRlZWJmZDQxNjFiYmFkMDY0MDA0ZThjZDI0IiwidXNlcl9pZCI6Mn0.apZb-dDrYDl32ID-bo-od34dhrCnKn1k4-_8leV4VSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/teacher/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"teacher",
+								""
+							]
+						},
+						"description": "This api list all teachers"
+					},
+					"response": [
+						{
+							"name": "get teachers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/teacher",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"teacher"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 01 Jun 2024 15:10:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "72"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Mr. Nguh Prince\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Mr. Agbor Anderson\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MjU1NTEzLCJpYXQiOjE3MTcyNTM3MTMsImp0aSI6IjlkYWY1MjRlZWJmZDQxNjFiYmFkMDY0MDA0ZThjZDI0IiwidXNlcl9pZCI6Mn0.apZb-dDrYDl32ID-bo-od34dhrCnKn1k4-_8leV4VSA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Mr. Djousse\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/teacher/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"teacher",
+								""
+							]
+						},
+						"description": "This api is used to create a teacher"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TeacherCourseHours",
+			"item": [
+				{
+					"name": "list Teacher Course hours",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNzQ0NTMzNiwiaWF0IjoxNzE3MzU4OTM2LCJqdGkiOiIzZTYyNzBhZDc0ZWI0ZTIyYmVlNGI5NGMzZTI0N2IwOCIsInVzZXJfaWQiOjR9.0QtSuCDwmlhPAcrlY88I7dqkg3KHpYy0f_JMwzpBXxI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/teacher-course-hour/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"teacher-course-hour",
+								"1",
+								""
+							]
+						},
+						"description": "This api is used to list the teachers and the hours taught for a course"
+					},
+					"response": [
+						{
+							"name": "list Teacher Course hours",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8000/api/teacher-course-hour/1/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"teacher-course-hour",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 05:37:13 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"course\": 2,\n        \"teacher\": 2,\n        \"hours_taught\": \"2.00\",\n        \"course_name\": \"GIS\",\n        \"teacher_name\": \"Mr. Agbor Anderson\"\n    },\n    {\n        \"id\": 1,\n        \"course\": 1,\n        \"teacher\": 1,\n        \"hours_taught\": \"5.02\",\n        \"course_name\": \"Advance OOP\",\n        \"teacher_name\": \"Mr. Nguh Prince\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create TeacherCourseHours",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3MzEwNjIyLCJpYXQiOjE3MTczMDg4MjIsImp0aSI6ImJkNGFmOTg2Y2NhMzQxMGJhNmY0ZTk2YjY5NjVkZDBiIiwidXNlcl9pZCI6Mn0.lzavIl0kQg67QlLCQeOIRINeV3R1Q47vvjneW_ga794",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"teacher\": 1,\r\n        \"hours_taught\": \"10\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/teacher-course-hour/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"teacher-course-hour",
+								"1",
+								""
+							]
+						},
+						"description": "This api is used to create the hours taught of a particular teacher and particular course"
+					},
+					"response": [
+						{
+							"name": "Create TeacherCourseHours",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"teacher\": 1,\r\n        \"hours_taught\": \"8\"\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8000/api/teacher-course-hour/1/",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"teacher-course-hour",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 02 Jun 2024 05:42:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.3"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"teacher\": 1,\n    \"hours_taught\": \"8.00\",\n    \"course_name\": \"Advance OOP\",\n    \"teacher_name\": \"Mr. Nguh Prince\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
 }
