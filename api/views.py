@@ -140,3 +140,24 @@ class UserDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
     queryset = User.objects.all()
+
+class CourseUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = CourseSerializer
+    queryset = Course.objects.all()
+
+class CourseDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = CourseSerializer
+    queryset = Course.objects.all()
+
+class ClassUpdateView(generics.UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ClassSerializer
+    queryset = Class.objects.all()
+
+class ClassDeleteView(generics.DestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ClassSerializer
+    queryset = Class.objects.all()
+
