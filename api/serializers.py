@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Course, Class, File, LogbookEntry
+from .models import User, Course, Class, File, LogbookEntry, TeacherCourseHours
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -83,3 +83,19 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = ["id", "name"]
+
+
+class TeacherCourseHoursSerializer(serializers.ModelSerializer):
+
+    course_name = serializers.CharField(source="course.name", read_only=True)
+    teacher_name = serializers.CharField(source="teacher.name", read_only=True)
+
+    class Meta:
+        model = TeacherCourseHours
+        fields = [
+            "id",
+            "teacher",
+            "hours_taught",
+            "course_name",
+            "teacher_name",
+        ]

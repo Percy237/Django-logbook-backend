@@ -10,6 +10,7 @@ from .serializers import (
     ClassSerializer,
     LogbookEntrySerializer,
     TeacherSerializer,
+    TeacherCourseHoursSerializer,
 )
 from rest_framework.permissions import IsAuthenticated, AllowAny
 
@@ -120,6 +121,40 @@ class TeacherListCreateView(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save()
 
+
+class TeacherCourseHoursListCreateView(generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TeacherCourseHoursSerializer
+
+    def get_queryset(self):
+        course_id = self.kwargs.get("course_id")
+        return TeacherCourseHours.objects.filter(course=course_id)
+
+    def perform_create(self, serializer):
+        course_id = self.kwargs.get("course_id")
+        teacher_id = self.request.data.get("teacher")
+        try:
+            course = Course.objects.get(pk=course_id)
+            teacher = Teacher.objects.get(pk=teacher_id)
+        except Course.DoesNotExist:
+            raise serializer.ValidationError({"course": "Course not found"})
+        except Teacher.DoesNotExist:
+            raise serializer.ValidationError({"teacher": "Teacher not found"})
+
+        # Check if the TeacherCourseHours already exists
+        try:
+            teacher_course_hours = TeacherCourseHours.objects.get(
+                teacher=teacher, course=course
+            )
+            teacher_course_hours.hours_taught = serializer.validated_data.get(
+                "hours_taught", 0
+            )
+            teacher_course_hours.save()
+            serializer.instance = teacher_course_hours
+        except TeacherCourseHours.DoesNotExist:
+            serializer.save(teacher=teacher, course=course)
+
+
 class TeacherUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = TeacherSerializer
@@ -131,33 +166,38 @@ class TeacherDeleteView(generics.DestroyAPIView):
     serializer_class = TeacherSerializer
     queryset = Teacher.objects.all()
 
+
 class UserUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
     queryset = User.objects.all()
+
 
 class UserDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserSerializer
     queryset = User.objects.all()
 
+
 class CourseUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
+
 
 class CourseDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
 
+
 class ClassUpdateView(generics.UpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ClassSerializer
     queryset = Class.objects.all()
 
+
 class ClassDeleteView(generics.DestroyAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ClassSerializer
     queryset = Class.objects.all()
-

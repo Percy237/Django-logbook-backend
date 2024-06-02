@@ -17,6 +17,11 @@ urlpatterns = [
         name="logbook-entry-create",
     ),
     path(
+        "teacher-course-hour/<int:course_id>/",
+        views.TeacherCourseHoursListCreateView.as_view(),
+        name="teacher-course-hour",
+    ),
+    path(
         "teacher/",
         views.TeacherListCreateView.as_view(),
         name="teacher-list-create",
